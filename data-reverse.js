@@ -1,12 +1,7 @@
-function dataReverse(data) {
-  var eightBits = data.length, 
-  ans =[],
-  i=0;
-  
-  while(eightBits>0) {
-  ans.push(data.slice(eightBits-8,eightBits))
-   eightBits -= 8
+const dataReverse = data => {
+  const bytes = [];
+  for (let i = 0; i < data.length; i += 8) {
+    bytes.unshift(...data.slice(i, i + 8));
   }
-  var finalAns =  [].concat(...ans);
-  return finalAns;
-}
+  return bytes;
+};
