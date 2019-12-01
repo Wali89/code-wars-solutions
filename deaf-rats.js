@@ -1,16 +1,14 @@
 var countDeafRats = function(town) {
-  let deafs = 0
-  let ident = 'O'
-  for ( let i = 0; i < town.length; i++){
-     if ( town[i] === 'P' ){
-      ident =  '~'
-     }
-     if (town[i] === ident){
-       deafs++
-     }
-     if (town[i] === '~' || town[i] === 'O'){
-      i++
-     }
-   }
-  return deafs;
+
+  if(town != null){
+    [left,right]=town.split('P');
+        var a=left+right.split('').reverse().join('');
+        var b=(a.match(/O~|~O/gi)||[]).filter(v=>v=='O~').length;
+         return b;
+  }
+  return 0;
+  
+        
+        
+       
 }
